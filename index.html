@@ -1,36 +1,4 @@
-<?php
 
-
- if (isset($_POST['guardar'])) {
-    // Recibe los datos del formulario
-    $mascota = $_POST['mascota'];
-    $propietario = $_POST['propietario'];
-    $telefono = $_POST['telefono'];
-    $fecha = $_POST['fecha'];
-    $hora = $_POST['hora'];
-    $sintomas = $_POST['sintomas'];
-
-    include ("db.php");
-    // Inserta los datos en la base de datos
-    $sql = "INSERT INTO datos (mascota, propietario, telefono, fecha, hora, sintomas) VALUES ('".$mascota."', '".$propietario."', '".$telefono."', '".$fecha."', '".$hora."', '".$sintomas."')";
-    $resultado=mysqli_query($conn,$sql);
-
-    // Ejecuta la consulta y verifica si fue exitosa
-    if ($resultado) {
-        echo "<script language='JavaScript'>
-        alert('Los datos se agregaron correctamente');
-        location.assign('index.php');
-        </script>";
-    } else {
-        echo "<script language='JavaScript'>
-        alert('Los datos NO se agregaron');
-        location.assign('index.php');
-        </script>";
-      }
-    mysqli_close($conexion);
-}else{
- ?>
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,9 +72,7 @@
                             <button name="guardar" type="submit" class="btn btn-success w-100 d-block">Crear Cita</button>
                     </div>
                 </form>
-                <?php
-    }
-    ?>
+   
             </div>
             <div class="col-md-6">
                 <h2 id="administra" class="mb-4"></h2>
